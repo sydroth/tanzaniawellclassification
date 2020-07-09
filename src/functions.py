@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 
 
-
 def load_train_add_target_df():
     '''This function loads the three
     datasets from the data folder and
@@ -198,7 +197,7 @@ def load_processed_train_df():
     dataframe'''
     train = load_train_add_target_df()
     #Creating the status column for numerically transformed status_group
-    train['status'] = train.status_group.replace(numeric_status_group)
+    train['status'] = train.status_group.replace(numeric_status_group())
     #Binning funder field into 7 categories
     train['funder'] = train.apply(lambda x: categorize_funder(x), axis=1)
     #Binning installer field into 7 categories
@@ -243,31 +242,6 @@ def load_processed_train_df():
     train = train.drop(columns=['source_type'], axis=1)
     #Removing waterpoint type group field
     train = train.drop(columns=['waterpoint_type_group'], axis=1)
-    
-    
-   # ohe_features = ['funder', 'installer', 'basin', 
-               #'region_code', 'district_code', 'lga', 'public_meeting',
-               #'scheme_management', 'permit', 'construction_year', 
-               #'extraction_type_class', 'management',
-               #'payment', 'quality_group',
-              # 'quantity', 'source', 'source_class', 'waterpoint_type']
-    #cont_features = ['amount_tsh', 'gps_height', 
-                 #'num_private', 'public_meeting',
-                  #'population']
-    
-    #ohe = OneHotEncoder()
-    #ss = StandardScaler()
-    
-    #train_cat = train[ohe_features]
-    #train_cont = train[cont_features].astype(float)
-    
-    #train_ohe = ohe.fit_transform(train_cat)
-    #train_scl = pd.DataFrame(ss.fit_transform(train_cont), columns=train[cont_features].columns)
-    #columns = ohe.get_feature_names(input_features=train_cat.columns)
-    #train_processed = pd.DataFrame(train_ohe.todense(), columns=columns)
-    #train_all = pd.concat([train_scl, train_processed], axis=1)
-    #train_all['status'] = train['status']
-    
     return train
 
     
