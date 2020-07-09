@@ -30,6 +30,38 @@ def numeric_status_group():
     return status_group_numeric
 
 
+def encode_region(df, num_of_bins=7):
+    '''
+    Takes in Tanzania Water Point Data, groups by region,
+    sorts regions by proportion of non-functional wells,
+    and bins them in equally-sized bins according to
+    num_of_bins parameter
+    
+    
+    returns: DataFrame with 'region_bins' column added
+             and with 'region' and 'region_code' columns dropped
+    '''
+    
+    #group DataFrame by region and count each type of waterpoint
+    reg = df.groupby('region')['status_group'].value_counts().unstack()
+
+    #calculate proportion of non-functional waterpoints in each region
+    reg['total'] = reg.sum(axis=1)
+    reg['non'] = reg['non functional'] / reg['total']
+
+    #sort by that proportion
+    reg = reg.sort_values('non')
+
+    #sort regions into specified number of equally wide bins
+    bin_labels = list(range(num_of_bins))
+    reg['region_bins'] = pd.cut(reg.non, bins=num_of_bins,
+                          labels=bin_labels)
+    codes = reg.region_bins
+        
+    #return bin numbers attached to dataframe
+    return df.join(codes, on='region').drop(['region','region_code'], axis=1)
+
+
 def categorize_funder(train):
     '''This function will go through every row in
     the dataframe column funder and if the value
@@ -115,6 +147,29 @@ def permit(row):
         return 1
     else:
         return 0
+    
+def encode_lga(df):
+    '''
+    encodes the 'lga' column into the values
+    'rural', 'urban', and 'other'
+    
+    returns DataFrame with column 'lga_coded'
+    '''
+    
+    lga_e = []
+    
+    for entry in df.lga:
+        key = entry.split()[-1]
+        if key == 'Rural':
+            lga_e.append('rural')
+        elif key == 'Urban':
+            lga_e.append('urban')
+        else:
+            lga_e.append('other')
+    
+    df['lga_coded'] = lga_e
+    return df.drop('lga', axis=1)    
+    
 
     
 def categorize_contruction(row):
@@ -164,8 +219,10 @@ def load_processed_train_df():
     train['permit'].fillna(True, inplace=True)
     #Removing wpt name field
     train = train.drop(columns=['wpt_name'], axis=1)
-    #Removing region field
-    train = train.drop(columns=['region'], axis=1)
+    #Encode and bin region field and drop original region column
+    train = encode_region(train)
+    #Encode lga field
+    train = encode_lga(train)
     #Removing recorded by field
     train = train.drop(columns=['recorded_by'], axis=1)
     #Changing permit field to numerical data
