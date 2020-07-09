@@ -179,13 +179,6 @@ def load_processed_train_df():
     #Removing payment type group field
     train = train.drop(columns=['payment_type'], axis=1)
     #Removing payment type field
-    train = train.drop(columns=['water_quality'], axis=1)
-    #Removing water quality field
-    train = train.drop(columns=['quantity_group'], axis=1)
-    #Removing source type field
-    train = train.drop(columns=['source_type'], axis=1)
-    #Removing waterpoint type group field
-    train = train.drop(columns=['waterpoint_type_group'], axis=1)
     
     
    # ohe_features = ['funder', 'installer', 'basin', 
