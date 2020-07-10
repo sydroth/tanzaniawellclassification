@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 
 
-
 def load_train_add_target_df():
     '''This function loads the three
     datasets from the data folder and
@@ -198,7 +197,7 @@ def load_processed_train_df():
     dataframe'''
     train = load_train_add_target_df()
     #Creating the status column for numerically transformed status_group
-    train['status'] = train.status_group.replace(numeric_status_group)
+    train['status'] = train.status_group.replace(numeric_status_group())
     #Binning funder field into 7 categories
     train['funder'] = train.apply(lambda x: categorize_funder(x), axis=1)
     #Binning installer field into 7 categories
@@ -236,6 +235,7 @@ def load_processed_train_df():
     #Removing payment type group field
     train = train.drop(columns=['payment_type'], axis=1)
     #Removing payment type field
+<<<<<<< HEAD
     
     
    # ohe_features = ['funder', 'installer', 'basin', 
@@ -261,6 +261,15 @@ def load_processed_train_df():
     #train_all = pd.concat([train_scl, train_processed], axis=1)
     #train_all['status'] = train['status']
     
+=======
+    train = train.drop(columns=['water_quality'], axis=1)
+    #Removing water quality field
+    train = train.drop(columns=['quantity_group'], axis=1)
+    #Removing source type field
+    train = train.drop(columns=['source_type'], axis=1)
+    #Removing waterpoint type group field
+    train = train.drop(columns=['waterpoint_type_group'], axis=1)
+>>>>>>> 3341207f6dacf19e1fb634209862d201d3ed3c0d
     return train
 
     
