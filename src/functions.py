@@ -237,15 +237,25 @@ def load_processed_train_df():
     #Dropping construction year by decade
     train.drop(['construction_year'], axis=1, inplace=True)
     #Removing payment type field
+    
+    
+    
+    
     train = train.drop(columns=['water_quality'], axis=1)
     #removing payment
     train = train.drop(columns=['payment_type'], axis=1)
     #Removing water quality field
     train = train.drop(columns=['quantity_group'], axis=1)
     #Removing source type field
+
     train = train.drop(columns=['source_class'], axis=1)
     train = train.drop(columns=['source'], axis=1)
     
+
+    train = train.drop(columns=['source_type'], axis=1)
+    #Removing waterpoint type group field
+    train = train.drop(columns=['waterpoint_type_group'], axis=1)
+
     return train
 
     
