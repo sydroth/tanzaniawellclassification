@@ -74,15 +74,17 @@ def analyze_by_categorical(dataframe, col_name):
         value = possible_values[index]
         median_year = years[value]
         
+        other_wells = dataframe[dataframe[col_name]!= value]
+        
         labels = ['Functional', 'Functional - Needs Repair', 'Non-functional']
-        data_set_prcnts = calc_prcnts(dataframe)
+        data_set_prcnts = calc_prcnts(other_wells)
         subset_percents = calc_prcnts(dataframe, col_name=column, value=value)
 
         x = np.arange(len(labels))  # the label locations
         width = 0.3  # the width of the bars
 
 
-        rects1 = ax[index].bar(x + width/2, data_set_prcnts, width, label='Total Data Set', align='center')
+        rects1 = ax[index].bar(x + width/2, data_set_prcnts, width, label=f'With {col_name} not equal to {value}', align='center')
         rects2 = ax[index].bar(x - width/2, subset_percents, width, label=f'With {col_name} equal to {value}', align='center')
 
         # Add some text for labels, title and custom x-axis tick labels, etc.

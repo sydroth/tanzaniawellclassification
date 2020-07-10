@@ -228,25 +228,6 @@ def load_processed_train_df():
     #Filling public meeting
     train['public_meeting'].fillna('not_known', inplace=True)
     
-    
-    #Removing subvillage field
-    train = train.drop(columns=['subvillage'], axis=1)
-    #Removing scheme name field
-    train = train.drop(columns=['scheme_name'], axis=1)
-    #Removing wpt name field
-    train = train.drop(columns=['wpt_name'], axis=1)
-    #Removing recorded by field
-    train = train.drop(columns=['recorded_by'], axis=1)
-    #Removing payment type field
-    train = train.drop(columns=['water_quality'], axis=1)
-    #removing payment
-    train = train.drop(columns=['payment_type'], axis=1)
-    #Removing water quality field
-    train = train.drop(columns=['quantity_group'], axis=1)
-    #Removing source type field
-    train = train.drop(columns=['source_class'], axis=1)
-    train = train.drop(columns=['source'], axis=1)
-    
     return train
 
     
