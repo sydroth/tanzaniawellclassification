@@ -196,6 +196,8 @@ def categorize_contruction(row):
         return '2010s'
 
     
+
+    
 def load_processed_train_df():
     '''This function takes the inital 
     dataframe created with the first 
@@ -215,6 +217,7 @@ def load_processed_train_df():
     train = combine_waterpoint(train)
     train = clean_permit(train)
     train = create_decades(train)
+    train = fill_years(train)
     
     #Encode and bin region field and drop original region column
     train = encode_region(train)
@@ -234,8 +237,6 @@ def load_processed_train_df():
     train = train.drop(columns=['wpt_name'], axis=1)
     #Removing recorded by field
     train = train.drop(columns=['recorded_by'], axis=1)
-    #Dropping construction year by decade
-    train.drop(['construction_year'], axis=1, inplace=True)
     #Removing payment type field
     train = train.drop(columns=['water_quality'], axis=1)
     #removing payment
@@ -256,7 +257,14 @@ def load_processed_train_df():
 Max's cleaning Functions
 ==================================================================================================================
 """
-    
+
+def average_prediction(construction_year):
+    if type(construction_year) == str:
+        decade_split = construction_year.split('-')
+        return pd.Series(decade_split).map(int).mean()
+    else:
+        return construction_year
+
 
 def combiner(row, col_1, col_2):
     if row[col_1]!=row[col_2]:
@@ -622,4 +630,66 @@ def create_decades(df):
 
 
 
+def fill_years(df):
+    df['decade'] = df['construction_year'].map(bin_year)
 
+    non_zeros = df[df['construction_year']>0]
+    decades = ['2000-2010',
+    '1990-2000',
+    '1980-1990',
+    '2010-2020',
+    '1970-1980',
+    '1960-1970']
+    for decade in decades:
+        non_zeros[decade] = non_zeros['decade'].map(lambda val: create_decade_columns(val, decade))
+
+    non_zeros = non_zeros.loc[:,['construction_year']]
+
+    zeros = df[df['construction_year']==0]
+    zeros_index = zeros.index
+    zeros = zeros.reset_index().drop("index", axis=1)
+
+
+    zeros_clean = zeros.loc[:,['waterpoint_type/group', 'scheme_management/management', 'basin', 'region_code', 
+                        'funder/installer', 'extraction_type/group/class',  'source', 'source_type', 
+                       'management_group', 'permit', 'district_code']]
+
+    funder_installer_ohe = pickle.load(open('../src/funder_installer_ohe.sav', 'rb'))
+    extraction_type_group_class_ohe = pickle.load(open('../src/extraction_type_group_class_ohe.sav', 'rb'))
+    scheme_management_management_ohe = pickle.load(open('../src/scheme_management_management_ohe.sav', 'rb'))
+    management_group_ohe = pickle.load(open('../src/management_group_ohe.sav', 'rb'))
+    source_type_ohe = pickle.load(open('../src/source_type_ohe.sav', 'rb'))
+    source_ohe = pickle.load(open('../src/source_ohe.sav', 'rb'))
+    waterpoint_type_group_ohe = pickle.load(open('../src/waterpoint_type_group_ohe.sav', 'rb'))
+    permit_ohe = pickle.load(open('../src/permit_ohe.sav', 'rb'))
+    basin_ohe = pickle.load(open('../src/basin_ohe.sav', 'rb'))
+    district_code_ohe = pickle.load(open('../src/district_code_ohe.sav', 'rb'))
+    region_code_ohe = pickle.load(open('../src/region_code_ohe.sav', 'rb'))
+
+    X_test_all_features = zeros_clean.copy().reset_index().drop("index", axis=1)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, 'funder/installer', funder_installer_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "extraction_type/group/class", extraction_type_group_class_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "scheme_management/management", scheme_management_management_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "management_group", management_group_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "source_type", source_type_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "source", source_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "waterpoint_type/group", waterpoint_type_group_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "permit", permit_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "basin", basin_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "district_code", district_code_ohe)
+    X_test_all_features = encode_and_concat_feature(X_test_all_features, "region_code", region_code_ohe)
+
+    model = pickle.load(open('../src/year_predictor.sav', 'rb'))
+
+    predictions_ = model.predict(X_test_all_features)
+    prediction_df = pd.DataFrame(predictions_, index=zeros_index, columns=['construction_year'])
+
+    full_df = pd.concat([non_zeros, prediction_df])
+    full_df.sort_index(inplace=True)
+
+    full_df['construction_year'] = full_df['construction_year'].map(average_prediction)
+
+    new_df = df.drop('construction_year', axis=1).merge(full_df, left_index=True, right_index=True)
+    new_df.drop('decade', axis=1, inplace=True)
+
+    return new_df
