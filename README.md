@@ -56,16 +56,11 @@
 >Using data from Taarifa and the Tanzanian Ministry of Water, can you predict which pumps are functional, which need some repairs, and which don't work at all? This is an intermediate-level practice competition. Predict one of these three classes based on a number of variables about what kind of pump is operating, when it was installed, and how it is managed. A smart understanding of which waterpoints will fail can improve maintenance operations and ensure that clean, potable water is available to communities across Tanzania.   
 
 <p style="text-align:right;"><i>-DRIVENDATA Project Description</i></p>
-<p style="text-align:center;">
-    <img src="reports/figures/images/image2.png"
-     style="text-align: center;"
-     alt="Markdown Monster icon"
-     width="600" height="600"/>
-</p>
+
 <img src="reports/figures/images/image1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" 
-     width="400" height="600"/>
+     height="600"/>
      
 ## Our Goal
 Our goal is to provide a way for water providers in Tanzania to predict the status of water wells. [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to it's citizens and needs to change its approach to water infrastructure. Our tool could provide insights into what needs to be done to overcome this challenge. 
@@ -75,7 +70,12 @@ Our goal is to provide a way for water providers in Tanzania to predict the stat
 
 ## Objectives
 >Using data from Taarifa and the Tanzanian Ministry of Water, can you predict which pumps are functional, which need some repairs, and which don't work at all?  
-
+<p style="text-align:center;">
+    <img src="reports/figures/images/image2.png"
+     style="text-align: center;"
+     alt="Markdown Monster icon"
+     height="600"/>
+</p>
 #### Modelling
  The Tanzanian government is struggling to provide water to its growing population. Providing insights into the future status of their water infrastructure will enable them to prepare for future water demands. Our hope in making this model is to provide the government a way to predict the statuses of these points and allocate resource to areas in need based on these predicitons.
 
@@ -86,7 +86,7 @@ Furthermore, we are attempting to find out exactly which features best determine
      style="text-align: center;"
      alt="Markdown Monster icon"
      style="float: left;"
-     width="600" height="600"/>
+     height="600"/>
 </p>
 
 
