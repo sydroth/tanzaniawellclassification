@@ -1,4 +1,4 @@
-name: Tanzania-well-env
+name: project-3-env
 channels:
   - conda-forge
   - defaults
@@ -246,5 +246,5 @@ dependencies:
     - widgetsnbextension==3.5.1
     - zipp==0.5.1
     - zope-interface==5.1.0
-prefix: /opt/anaconda3/envs/learn-env
+
 
