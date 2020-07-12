@@ -182,19 +182,6 @@ The best classification rate for this competition is currently 0.8294. We would 
 
 
 
-### Technologies
-- Python
-    - Pandas
-    - SKLearn
-    - NumPy
-    - GeoPandas
-    - MatPlotLib
-    - XGBoost
-- Jupyter
-- Anaconda
-
-
-
 
 ## Getting Started
 - A list of the variables and the information they provide can be found here: [Features & Label Descriptions](references/features_&_labels.txt)
