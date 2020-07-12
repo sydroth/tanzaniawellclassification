@@ -248,9 +248,9 @@ Generated a Pandas Profiling Report for an overview of the dataset. The profilin
     - Population
     
     
-- The final model had a recall score for the class 'non-functional' of 76 percent and mean accuracy of 83 percent when validated with the test data.
+- The final model had a recall score for the class 'non-functional' of 82 percent and mean accuracy of 82 percent when validated with the test data.
 
-- Out of all of the wells classified as 'non-functional', the model correctly flagged 76 percent of them.
+- Out of all of the wells classified as 'non-functional', the model correctly flagged 82 percent of them.
 
 - The accuracy and recall scores below were generated from the model after oversampling the minority class with SMOTE. We chose to resample with smote due to our previous models being overfit as a consequence of class imbalance in the target variable.
 
@@ -259,16 +259,16 @@ Generated a Pandas Profiling Report for an overview of the dataset. The profilin
 
 |             | precision | recall | f1-score | support |                           |
 |-------------|-----------|--------|----------|---------|---------------------------|
-| **Class 0** |   0.82    |  0.76  |   0.79   |  5678   | _non-functional_          |
-| **Class 1** |   0.36    |  0.92  |   0.89   |  8068   | _functional needs repair_ |
-| **Class 2** |   0.81    |  0.79  |   0.80   |  8125   | _functional_              | 
+| **Class 0** |   0.88    |  0.82  |   0.85   |  5678   | _non-functional_          |
+| **Class 1** |   0.43    |  0.78  |   0.55   |  1074   | _functional needs repair_ |
+| **Class 2** |   0.88    |  0.83  |   0.86   |  8098   | _functional_              | 
 
 
 |                           |           |        |          |         |
 |---------------------------|-----------|--------|----------|---------|
-|  **Accuracy**             |           |        |   0.83   |  21836  |
-|  **Macro Average**        |   0.83    |  0.83  |   0.83   |  21836  |
-|  **Weighted Average**     |   0.83    |  0.83  |   0.83   |  21836  |
+|  **Accuracy**             |           |        |   0.82   |  14850  |
+|  **Macro Average**        |   0.73    |  0.81  |   0.75   |  14850  |
+|  **Weighted Average**     |   0.85    |  0.82  |   0.83   |  14850  |
  
 
 

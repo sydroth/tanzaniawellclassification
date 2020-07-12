@@ -12,6 +12,35 @@ import os
 import pandas as pd
 import numpy as np
 import pickle
+from datetime import datetime
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score, precision_score, recall_score, classification_report
+
+
+def timer(start_time=None):
+    if not start_time:
+        start_time = datetime.now()
+        return start_time
+    elif start_time:
+        thour, temp_sec = divmod((datetime.now() - start_time).total_seconds(), 3600)
+        tmin, tsec = divmod(temp_sec, 60)
+        print('\n Time taken: %i hours %i minutes and %s seconds.' % (thour, tmin, round(tsec, 2)))
+
+def evaluation(y, y_hat, title = 'Confusion Matrix'):
+    '''takes in true values and predicted values.
+    The function then prints out a classifcation report
+    as well as a confusion matrix using seaborn's heatmap.'''
+    cm = confusion_matrix(y, y_hat)
+    precision = precision_score(y, y_hat, average = 'weighted')
+    recall = recall_score(y, y_hat, average = 'weighted')
+    accuracy = accuracy_score(y,y_hat)
+    print(classification_report(y, y_hat))
+    print('Accurancy: ', accuracy)
+    sns.heatmap(cm,  cmap= 'Greens', annot=True)
+    plt.xlabel('predicted')
+    plt.ylabel('actual')
+    plt.title(title)
+    plt.show()
 
 def load_train_add_target_df():
     '''This function loads the three
@@ -181,19 +210,7 @@ def encode_lga(df):
     
 
     
-def categorize_contruction(row):
-    if row['construction_year'] < 1970:
-        return '1960s'
-    elif row['construction_year'] < 1980:
-        return '1970s'
-    elif row['construction_year'] < 1990:
-        return '1980s'
-    elif row['construction_year'] < 2000:
-        return '1990s'
-    elif row['construction_year'] < 2010:
-        return '2000s'
-    elif row['construction_year'] < 2020:
-        return '2010s'
+
 
     
 def load_processed_train_df():
@@ -252,9 +269,9 @@ def load_processed_train_df():
     train = train.drop(columns=['source'], axis=1)
     
 
-    train = train.drop(columns=['source_type'], axis=1)
+    #train = train.drop(columns=['source_type'], axis=1)
     #Removing waterpoint type group field
-    train = train.drop(columns=['waterpoint_type_group'], axis=1)
+    #train = train.drop(columns=['waterpoint_type_group'], axis=1)
 
     return train
 
