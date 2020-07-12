@@ -52,32 +52,35 @@
 </div>
 
 
-## Objective 
->Using data from Taarifa and the Tanzanian Ministry of Water, can you predict which pumps are functional, which need some repairs, and which don't work at all? This is an intermediate-level practice competition. Predict one of these three classes based on a number of variables about what kind of pump is operating, when it was installed, and how it is managed. A smart understanding of which waterpoints will fail can improve maintenance operations and ensure that clean, potable water is available to communities across Tanzania.   
 
-<p style="text-align:right;"><i>-DRIVENDATA Project Description</i></p>
 
+
+
+     
+## Our Goal
+
+Our goal is to provide a way for water providers in Tanzania to predict the status of water wells. [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to it's citizens and needs to change its approach to water infrastructure. Our tool could provide insights into what needs to be done to overcome this challenge. 
 <img src="reports/figures/images/image1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" 
      height="600"/>
-     
-## Our Goal
-Our goal is to provide a way for water providers in Tanzania to predict the status of water wells. [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to it's citizens and needs to change its approach to water infrastructure. Our tool could provide insights into what needs to be done to overcome this challenge. 
-
 
 
 
 ## Objectives
 >Using data from Taarifa and the Tanzanian Ministry of Water, can you predict which pumps are functional, which need some repairs, and which don't work at all?  
+<p style="text-align:right;"><i>-DRIVENDATA Project Description</i></p>
+
+
+#### Modelling
+ The Tanzanian government is struggling to provide water to its growing population. Providing insights into the future status of their water infrastructure will enable them to prepare for future water demands. Our hope in making this model is to provide the government a way to predict the statuses of these points and allocate resource to areas in need based on these predicitons.
 <p style="text-align:center;">
     <img src="reports/figures/images/image2.png"
      style="text-align: center;"
      alt="Markdown Monster icon"
-     height="600"/>
+     height="600"
+     width="1200"/>
 </p>
-#### Modelling
- The Tanzanian government is struggling to provide water to its growing population. Providing insights into the future status of their water infrastructure will enable them to prepare for future water demands. Our hope in making this model is to provide the government a way to predict the statuses of these points and allocate resource to areas in need based on these predicitons.
 
 #### Business Understanding
 Furthermore, we are attempting to find out exactly which features best determine this functioning status. Numerous studies have been done on what factors contribute to a wells longevity which have found that the management style, location, and technology are all strong indicators. We want to verify this in our data and also find more factors that are accessible given the format of the data.
@@ -86,15 +89,14 @@ Furthermore, we are attempting to find out exactly which features best determine
      style="text-align: center;"
      alt="Markdown Monster icon"
      style="float: left;"
-     height="600"/>
+     height="600"
+     width="1200"/>
 </p>
 
 
 
 ## Measure of Success
 In order for our model to be effective, we will be seeking to minimize false negatives. In the context of our model, a false negative would be identifying a water-point as functional when it is in fact non-functional. This is a problem because we don't want to write off non-functional wells and leave people without access to water. False positives are not as much of an issue, because falsely identifying a well as non-functional will only result in an unnecessary maintenance call. For this reason, we will seek to maximize our model's recall score.
-
-### Success Criteria
 
 The best classification rate for this competition is currently 0.8294. We would ideally like our model to have a minimum recall classification score of .80, out of all the wells that are non-functional, our model successfully classifying 80 percent of them as non-functional.
 
