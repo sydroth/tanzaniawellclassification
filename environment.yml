@@ -1,4 +1,4 @@
-name: project_3-env
+name: Tanzania-well-env
 channels:
   - conda-forge
   - defaults
@@ -181,6 +181,7 @@ dependencies:
     - ephem==3.7.7.0
     - folium==0.9.1
     - future==0.17.1
+    - fuzzywuzzy==0.18.0
     - gast==0.2.2
     - grpcio==1.21.1
     - holidays==0.9.11
@@ -203,6 +204,7 @@ dependencies:
     - llvmlite==0.33.0
     - lunardate==0.2.0
     - markdown==3.1.1
+    - markdown-captions==2
     - matplotlib==3.2.2
     - mglearn==0.1.9
     - missingno==0.4.2
@@ -235,6 +237,7 @@ dependencies:
     - tensorboard==1.6.0
     - tensorflow==1.6.0
     - termcolor==1.1.0
+    - textdistance==4.2.0
     - threadpoolctl==2.1.0
     - tqdm==4.47.0
     - traittypes==0.2.1
@@ -243,4 +246,5 @@ dependencies:
     - widgetsnbextension==3.5.1
     - zipp==0.5.1
     - zope-interface==5.1.0
+prefix: /opt/anaconda3/envs/learn-env
 
