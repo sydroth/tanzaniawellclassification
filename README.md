@@ -226,7 +226,7 @@ Here's how to get started:
 
 2. Explore the data
 
-    a. Follow the process_data notebook in this projects 'notebook' folder and explore the processed data.
+    - Follow the process_data notebook in this projects 'notebook' folder and explore the processed data.
 
 
 4. Load the [Conda Environment](https://github.com/sydroth/tanzaniawellclassification/blob/master/environment.yml) used for the project
@@ -234,13 +234,13 @@ Here's how to get started:
 #### Repository Structure                   
 
 - [Exploratory Notebooks](https://github.com/sydroth/tanzaniawellclassification/tree/master/notebooks)
- - Walkthroughs of all of our Exploratory Data Analysis
+  - Walkthroughs of all of our Exploratory Data Analysis
 - [Reports](https://github.com/sydroth/tanzaniawellclassification/tree/master/reports)
- - Final report slideshow and notebook
+  - Final report slideshow and notebook
 - [References](https://github.com/sydroth/tanzaniawellclassification/tree/master/references)
- - Outside material used for business understanding and context
+  - Outside material used for business understanding and context
 - [Source Code](https://github.com/sydroth/tanzaniawellclassification/tree/master/src)
- - Functions used in notebooks
+  - Functions used in notebooks
 
 #### Members:
 
