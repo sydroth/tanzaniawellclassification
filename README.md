@@ -1,11 +1,10 @@
 
 # Tanzania Well Classification
 
-
-
 #### A classification project using the [Tanzania Water Well Data](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/) from Driven Data.
+<img align="right" height="500" src="references/pexels-kelly-lacy-3030281.jpg">  
 
-<img align="right" width="600" height="500" src="https://s3.amazonaws.com/launchgood/project%2F13574%2Fwater_well_for_10000_people_in_dar_es_salaam_tanzania_IMG-20180422-WA0122-700x525.jpg">  
+
 
 #### Table of Contents                   
 
@@ -15,45 +14,6 @@
 - [References](https://github.com/sydroth/tanzaniawellclassification/tree/master/references)
 - [Source Code](https://github.com/sydroth/tanzaniawellclassification/tree/master/src)
 - [Data Dictionary](https://github.com/sydroth/tanzaniawellclassification/tree/master/references/data_dictionary.txt)
-
-
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
-
-
-
-
 
 
      
