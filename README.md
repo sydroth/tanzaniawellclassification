@@ -17,12 +17,6 @@ Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and
 2. Build a predictive model
 3. Report findings
 
-
-<img src="reports/figures/images/image1.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" 
-     height="600"/>
-
 ## Table of Contents
 1. Context
 2. Data Analysis
@@ -34,18 +28,27 @@ Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and
 
 ### Context
 Furthermore, we are attempting to find out exactly which features best determine this functioning status. Numerous studies have been done on what factors contribute to a wells longevity which have found that the management style, location, and technology are all strong indicators. We want to verify this in our data and also find more factors that are accessible given the format of the data.
-<p style="text-align:center;">
-    <img src="reports/figures/images/image3.png"
-     style="text-align: center;"
-     alt="Markdown Monster icon"
-     style="float: left;"
-     height="600"
-     width="1200"/>
-</p>
 
 
 ### Data Analysis
 We were provided with a trianing dataset, training target dataset, and a test values dataset. After reading in the training dataset and target label, we merged these two dataframes together to have the complete training dataframe with the target variable. The target label in this dataset is 'Status_group' which contains the values 'functional', 'functional needs repair', or 'non-functional'.
+
+#### Regional Factors
+<p style="text-align:center;">
+    <img src="reports/figures/images/image3.png"
+     style="text-align: center;"
+     alt="Markdown Monster icon"
+     style="float: center;"
+     width="800"/>
+</p>
+<p style="text-align:center;">
+    <img src="reports/figures/images/image1.png"
+     style="text-align: center;"
+     alt="Markdown Monster icon"
+     style="float: center;"
+     width="800"/>
+</p>
+
 
 ### Data Cleaning
 #### Removing | Imputting Missing Values
@@ -62,8 +65,7 @@ We were provided with a trianing dataset, training target dataset, and a test va
     <img src="reports/figures/images/image2.png"
      style="text-align: center;"
      alt="Markdown Monster icon"
-     height="600"
-     width="1200"/>
+     height="400"/>
 </p>
 
 #### Measure of Success
@@ -157,7 +159,6 @@ The best classification rate for this competition is currently 0.8294. We would 
 
 ### Methods
 #### Project Workflow
-<img align="right" width="600" height="600" src="https://lh3.googleusercontent.com/proxy/qSWooR6X3MdeNgJFd7q4u-VqGU7DzSzyjn6vKWhEbqWYABCtI7yqGlJWOLIuCxTckwy2tGxOftpTkOG2eus3JelvnIkCX0BexnrCflC7KhuQg7TOmXp0BZbE1USx">  
 
 * Initial EDA
 * Removing / Imputing Missing Values
