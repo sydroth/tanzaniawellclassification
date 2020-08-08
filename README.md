@@ -3,33 +3,52 @@
 
 #### A classification project using the [Tanzania Water Well Data](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/) from Driven Data.
 ![header](references/pexels-kelly-lacy-3030281.jpg)
-
-
-
-#### Table of Contents                   
-
-
-- [Exploratory Notebooks](https://github.com/sydroth/tanzaniawellclassification/tree/master/notebooks)
-- [Reports](https://github.com/sydroth/tanzaniawellclassification/tree/master/reports)
-- [References](https://github.com/sydroth/tanzaniawellclassification/tree/master/references)
-- [Source Code](https://github.com/sydroth/tanzaniawellclassification/tree/master/src)
-- [Data Dictionary](https://github.com/sydroth/tanzaniawellclassification/tree/master/references/data_dictionary.txt)
-
-
      
 ## Our Goal
 
-Our goal is to provide a way for water providers in Tanzania to predict the status of water wells. [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to it's citizens and needs to change its approach to water infrastructure. Our tool could provide insights into what needs to be done to overcome this challenge. 
+Our goal is to discover if data agregated by [Taarifa](http://taarifa.org/) and the (Tanzanian Ministry of Water)[https://www.maji.go.tz/] can be used to predict well functionality. The data provided by these resources was collected by Driven Data for a competition which can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). This project is important because [tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to its growing population and if we can predict well functionality, we can provide insight that may be crucial for fixing their infrastructure.
+
+## Objectives
+1. Investugate the relationship between water point functionality and these factors:
+ - Users, installers, and managers
+ - Geographic location
+ - Year built
+ - Technology used
+2. Build a predictive model
+3. Report findings
+
+
 <img src="reports/figures/images/image1.png"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" 
      height="600"/>
+#### Repository Structure                   
 
+- [Exploratory Notebooks](https://github.com/sydroth/tanzaniawellclassification/tree/master/notebooks)
+ - Walkthroughs of all of our Exploratory Data Analysis
+- [Reports](https://github.com/sydroth/tanzaniawellclassification/tree/master/reports)
+ - Final report slideshow and notebook
+- [References](https://github.com/sydroth/tanzaniawellclassification/tree/master/references)
+ - Outside material used for business understanding and context
+- [Source Code](https://github.com/sydroth/tanzaniawellclassification/tree/master/src)
+ - Functions used in notebooks
 
+#### Business Understanding
+Furthermore, we are attempting to find out exactly which features best determine this functioning status. Numerous studies have been done on what factors contribute to a wells longevity which have found that the management style, location, and technology are all strong indicators. We want to verify this in our data and also find more factors that are accessible given the format of the data.
+<p style="text-align:center;">
+    <img src="reports/figures/images/image3.png"
+     style="text-align: center;"
+     alt="Markdown Monster icon"
+     style="float: left;"
+     height="600"
+     width="1200"/>
+</p>
 
-## Objectives
->Using data from Taarifa and the Tanzanian Ministry of Water, can you predict which pumps are functional, which need some repairs, and which don't work at all?  
-<p style="text-align:right;"><i>-DRIVENDATA Project Description</i></p>
+### Data
+As mentioned above, the data is collected from Taarifa and the Tanzanian Ministry of Water and provided by Driven Data (an overview of the data can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/25/)).
+
+#### Initial Exploratory Data Analysis
+We were provided with a trianing dataset, training target dataset, and a test values dataset. After reading in the training dataset and target label, we merged these two dataframes together to have the complete training dataframe with the target variable. The target label in this dataset is 'Status_group' which contains the values 'functional', 'functional needs repair', or 'non-functional'.
 
 
 #### Modelling
@@ -42,16 +61,7 @@ Our goal is to provide a way for water providers in Tanzania to predict the stat
      width="1200"/>
 </p>
 
-#### Business Understanding
-Furthermore, we are attempting to find out exactly which features best determine this functioning status. Numerous studies have been done on what factors contribute to a wells longevity which have found that the management style, location, and technology are all strong indicators. We want to verify this in our data and also find more factors that are accessible given the format of the data.
-<p style="text-align:center;">
-    <img src="reports/figures/images/image3.png"
-     style="text-align: center;"
-     alt="Markdown Monster icon"
-     style="float: left;"
-     height="600"
-     width="1200"/>
-</p>
+
 
 
 
@@ -143,14 +153,7 @@ The best classification rate for this competition is currently 0.8294. We would 
 
 
 
-## Getting Started
-- A list of the variables and the information they provide can be found here: [Features & Label Descriptions](references/features_&_labels.txt)
-
-#### Initial EDA
-We were provided with a trianing dataset, training target dataset, and a test values dataset. After reading in the training dataset and target label, we merged these two dataframes together to have the complete training dataframe with the target variable. The target label in this dataset is 'Status_group' which contains the values 'functional', 'functional needs repair', or 'non-functional'.
-
-Generated a Pandas Profiling Report for an overview of the dataset. The profiling report provides general information on the variables in the dataset. We looked into the interactions, correlations, and missing values of each variable. Variables that were significantly similar to another were either dropped or grouped together. We also dropped variables that had a constant value. You can find the Pandas Profiling Report here: [Profiling Report](references/well_class_report.html)
-
+### Data Cleaning
 #### Removing | Imputting Missing Values
 - Using inferential statistics, imputted the missing values with the appropriate values for each specific variable. 
 
@@ -269,7 +272,7 @@ Generated a Pandas Profiling Report for an overview of the dataset. The profilin
 
 |         Name             |                  GitHub               | 
 |--------------------------|----------------------------------|
-|Syd Rothman               |  [sydroth](https://github.com/sydroth)|
+|Syd Rothman               | [sydroth](https://github.com/sydroth)|
 |Jacob Prebys              | [jprebys](https://github.com/jprebys)|
 |Jason Wong                | [jwong853](https://github.com/jwong853)|
 |Maximilian Esterhammer-Fic| [mesterhammerfic](https://github.com/mesterhammerfic)|
