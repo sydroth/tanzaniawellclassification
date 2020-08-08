@@ -6,7 +6,7 @@
      
 ## Our Goal
 
-Our goal is to discover if data agregated by [Taarifa](http://taarifa.org/) and the (Tanzanian Ministry of Water)[https://www.maji.go.tz/] can be used to predict well functionality. The data provided by these resources was collected by Driven Data for a competition which can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). This project is important because [tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to its growing population and if we can predict well functionality, we can provide insight that may be crucial for fixing their infrastructure.
+Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and the [Tanzanian Ministry of Water](https://www.maji.go.tz/) can be used to predict well functionality. The data provided by these resources was collected by Driven Data for a competition which can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). This project is important because [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to its growing population and if we can predict well functionality, we can provide insight that may be crucial for fixing their infrastructure.
 
 ## Objectives
 1. Investugate the relationship between water point functionality and these factors:
@@ -22,18 +22,17 @@ Our goal is to discover if data agregated by [Taarifa](http://taarifa.org/) and 
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" 
      height="600"/>
-#### Repository Structure                   
 
-- [Exploratory Notebooks](https://github.com/sydroth/tanzaniawellclassification/tree/master/notebooks)
- - Walkthroughs of all of our Exploratory Data Analysis
-- [Reports](https://github.com/sydroth/tanzaniawellclassification/tree/master/reports)
- - Final report slideshow and notebook
-- [References](https://github.com/sydroth/tanzaniawellclassification/tree/master/references)
- - Outside material used for business understanding and context
-- [Source Code](https://github.com/sydroth/tanzaniawellclassification/tree/master/src)
- - Functions used in notebooks
+### Table of Contents
+1. Context
+2. Data Analysis
+3. Data Preperation
+4. Modelling
+5. Results
+6. Methods
+7. Contribution
 
-#### Business Understanding
+### Context
 Furthermore, we are attempting to find out exactly which features best determine this functioning status. Numerous studies have been done on what factors contribute to a wells longevity which have found that the management style, location, and technology are all strong indicators. We want to verify this in our data and also find more factors that are accessible given the format of the data.
 <p style="text-align:center;">
     <img src="reports/figures/images/image3.png"
@@ -44,114 +43,9 @@ Furthermore, we are attempting to find out exactly which features best determine
      width="1200"/>
 </p>
 
-### Data
-As mentioned above, the data is collected from Taarifa and the Tanzanian Ministry of Water and provided by Driven Data (an overview of the data can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/25/)).
 
-#### Initial Exploratory Data Analysis
+### Data Analysis
 We were provided with a trianing dataset, training target dataset, and a test values dataset. After reading in the training dataset and target label, we merged these two dataframes together to have the complete training dataframe with the target variable. The target label in this dataset is 'Status_group' which contains the values 'functional', 'functional needs repair', or 'non-functional'.
-
-
-#### Modelling
- The Tanzanian government is struggling to provide water to its growing population. Providing insights into the future status of their water infrastructure will enable them to prepare for future water demands. Our hope in making this model is to provide the government a way to predict the statuses of these points and allocate resource to areas in need based on these predicitons.
-<p style="text-align:center;">
-    <img src="reports/figures/images/image2.png"
-     style="text-align: center;"
-     alt="Markdown Monster icon"
-     height="600"
-     width="1200"/>
-</p>
-
-
-
-
-
-## Measure of Success
-In order for our model to be effective, we will be seeking to minimize false negatives. In the context of our model, a false negative would be identifying a water-point as functional when it is in fact non-functional. This is a problem because we don't want to write off non-functional wells and leave people without access to water. False positives are not as much of an issue, because falsely identifying a well as non-functional will only result in an unnecessary maintenance call. For this reason, we will seek to maximize our model's recall score.
-
-The best classification rate for this competition is currently 0.8294. We would ideally like our model to have a minimum recall classification score of .80, out of all the wells that are non-functional, our model successfully classifying 80 percent of them as non-functional.
-
-### Project Outline
-<img align="right" width="600" height="600" src="https://lh3.googleusercontent.com/proxy/qSWooR6X3MdeNgJFd7q4u-VqGU7DzSzyjn6vKWhEbqWYABCtI7yqGlJWOLIuCxTckwy2tGxOftpTkOG2eus3JelvnIkCX0BexnrCflC7KhuQg7TOmXp0BZbE1USx">  
-
-* Initial EDA
-* Removing / Imputing Missing Values
-* Dataset Scaling and Encoding
-* Baseline classification Model
-* Model Evaluation 
- - Feature Engineering 
- - Hyper Parameter Tuning
-* Model Iterations
-* Final Model
-* Explore Findings  
- - Results  
- - Business Recommendations
- 
-
-<table border="30">
- <tr>
-    <td><b style="font-size:20px">Methods Used</b></td>
-    <td><b style="font-size:30px"> </b></td>
-    <td><b style="font-size:30px"> </b></td>
-    <td><b style="font-size:20px">Technologies Used</b></td>
-    <td><b style="font-size:30px"> </b></td>
- </tr>
- <tr>
-    <td>Inferential Statistics</td>
-    <td> </td>
-    <td> </td>
-    <td>Python</td>
- </tr>
- <tr>
-    <td>Machine Learning</td>
-    <td> </td>
-    <td> </td>
-    <td>Pandas </td>
- </tr>
- <tr>
-    <td>Data Visualization</td>
-    <td> </td>
-    <td> </td>
-    <td>SKLearn</td>
- </tr>
- <tr>
-    <td>Predictive Modeling</td>
-    <td> </td>
-    <td> </td>
-    <td>SciPy</td>
- <tr>
-    <td>Classification</td>
-    <td> </td>
-    <td> </td>
-    <td>NumPy</td>
- </tr>
- <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td>MatPlotLib</td>
- </tr>
- <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td>BorutaPy</td>
- </tr>
- <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td>Jupyter</td>
-    <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td>Anaconda</td>
-     
- </tr>
-</table>
-
-
-
 
 ### Data Cleaning
 #### Removing | Imputting Missing Values
@@ -161,6 +55,21 @@ The best classification rate for this competition is currently 0.8294. We would 
 - Decided on whether to keep the variables as continuous numerical features in the model or utilyze them as categorical features by binning the values. 
 
 - Scaled the numerical features and encoded the categorical features.
+
+### Modelling
+ The Tanzanian government is struggling to provide water to its growing population. Providing insights into the future status of their water infrastructure will enable them to prepare for future water demands. Our hope in making this model is to provide the government a way to predict the statuses of these points and allocate resource to areas in need based on these predicitons.
+<p style="text-align:center;">
+    <img src="reports/figures/images/image2.png"
+     style="text-align: center;"
+     alt="Markdown Monster icon"
+     height="600"
+     width="1200"/>
+</p>
+
+## Measure of Success
+In order for our model to be effective, we will be seeking to minimize false negatives. In the context of our model, a false negative would be identifying a water-point as functional when it is in fact non-functional. This is a problem because we don't want to write off non-functional wells and leave people without access to water. False positives are not as much of an issue, because falsely identifying a well as non-functional will only result in an unnecessary maintenance call. For this reason, we will seek to maximize our model's recall score.
+
+The best classification rate for this competition is currently 0.8294. We would ideally like our model to have a minimum recall classification score of .80, out of all the wells that are non-functional, our model successfully classifying 80 percent of them as non-functional.
 
 #### Baseline Model
 - For our baseline model we chose to go with a Decision Tree Classifier with default parameters. 
@@ -240,14 +149,73 @@ The best classification rate for this competition is currently 0.8294. We would 
 - Commercially managed water points were found
 - Our model found that installation by a District Water Engineer is a strong indicator for functionality.
 
-### Business-facing Recommendations
+#### Business-facing Recommendations
 - Acqure more data on water points to analyze current usage and longevity of water point pump.
 - Increase funding for regions with more non-functional waterpoints by subsidizing private or community built wells.
 - Include the community in the planning and building process of new water points to improve overall care.
 
 
+### Methods
+#### Project Workflow
+<img align="right" width="600" height="600" src="https://lh3.googleusercontent.com/proxy/qSWooR6X3MdeNgJFd7q4u-VqGU7DzSzyjn6vKWhEbqWYABCtI7yqGlJWOLIuCxTckwy2tGxOftpTkOG2eus3JelvnIkCX0BexnrCflC7KhuQg7TOmXp0BZbE1USx">  
 
-### Reproduce Results
+* Initial EDA
+* Removing / Imputing Missing Values
+* Dataset Scaling and Encoding
+* Baseline classification Model
+* Model Evaluation 
+ - Feature Engineering 
+ - Hyper Parameter Tuning
+* Model Iterations
+* Final Model
+* Explore Findings  
+ - Results  
+ - Business Recommendations
+ 
+<table>
+ <tr>
+    <td><b style="font-size:20px">Methods Used</b></td>
+    <td><b style="font-size:20px">Technologies Used</b></td>
+ </tr>
+ <tr>
+    <td>Inferential Statistics</td>
+    <td>Python</td>
+ </tr>
+ <tr>
+    <td>Machine Learning</td>
+    <td>Pandas </td>
+ </tr>
+ <tr>
+    <td>Data Visualization</td>
+    <td>SKLearn</td>
+ </tr>
+ <tr>
+    <td>Predictive Modeling</td>
+    <td>SciPy</td>
+ <tr>
+    <td>Classification</td>
+    <td>NumPy</td>
+ </tr>
+ <tr>
+    <td> </td>
+    <td>MatPlotLib</td>
+ </tr>
+ <tr>
+    <td> </td>
+    <td>BorutaPy</td>
+ </tr>
+ <tr>
+    <td> </td>
+    <td>Jupyter</td>
+ </tr>
+ <tr>
+    <td> </td>
+    <td>Anaconda</td>
+ </tr>
+</table>
+
+### Want to contribute?
+Here's how to get started:
 1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
 
 2. Download data from the [Driven Data Competition Page](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/data/)
@@ -262,11 +230,16 @@ The best classification rate for this competition is currently 0.8294. We would 
 
 4. Load the [Conda Environment](https://github.com/sydroth/tanzaniawellclassification/blob/master/environment.yml) used for the project
 
+#### Repository Structure                   
 
-
-
-
-
+- [Exploratory Notebooks](https://github.com/sydroth/tanzaniawellclassification/tree/master/notebooks)
+ - Walkthroughs of all of our Exploratory Data Analysis
+- [Reports](https://github.com/sydroth/tanzaniawellclassification/tree/master/reports)
+ - Final report slideshow and notebook
+- [References](https://github.com/sydroth/tanzaniawellclassification/tree/master/references)
+ - Outside material used for business understanding and context
+- [Source Code](https://github.com/sydroth/tanzaniawellclassification/tree/master/src)
+ - Functions used in notebooks
 
 #### Members:
 
