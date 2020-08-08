@@ -2,7 +2,7 @@
 # Tanzania Well Classification
 
 #### A classification project using the [Tanzania Water Well Data](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/) from Driven Data.
-<img align="right" height="500" src="references/pexels-kelly-lacy-3030281.jpg">  
+![header](references/pexels-kelly-lacy-3030281.jpg)
 
 
 
