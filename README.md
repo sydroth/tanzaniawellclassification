@@ -4,12 +4,12 @@
 #### A classification project using the [Tanzania Water Well Data](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/) from Driven Data.
 ![header](references/pexels-kelly-lacy-3030281.jpg)
      
-## Our Goal
+# Our Goal
 
 Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and the [Tanzanian Ministry of Water](https://www.maji.go.tz/) can be used to predict well functionality. The data provided by these resources was collected by Driven Data for a competition which can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). This project is important because [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to its growing population and if we can predict well functionality, we can provide insight that may be crucial for fixing their infrastructure.
 
 ## Objectives
-1. Investugate the relationship between water point functionality and these factors:
+1. Investigate the relationship between water point functionality and these factors:
  - Users, installers, and managers
  - Geographic location
  - Year built
@@ -23,7 +23,7 @@ Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and
      style="float: left; margin-right: 10px;" 
      height="600"/>
 
-### Table of Contents
+## Table of Contents
 1. Context
 2. Data Analysis
 3. Data Preperation
@@ -66,7 +66,7 @@ We were provided with a trianing dataset, training target dataset, and a test va
      width="1200"/>
 </p>
 
-## Measure of Success
+#### Measure of Success
 In order for our model to be effective, we will be seeking to minimize false negatives. In the context of our model, a false negative would be identifying a water-point as functional when it is in fact non-functional. This is a problem because we don't want to write off non-functional wells and leave people without access to water. False positives are not as much of an issue, because falsely identifying a well as non-functional will only result in an unnecessary maintenance call. For this reason, we will seek to maximize our model's recall score.
 
 The best classification rate for this competition is currently 0.8294. We would ideally like our model to have a minimum recall classification score of .80, out of all the wells that are non-functional, our model successfully classifying 80 percent of them as non-functional.
@@ -149,8 +149,8 @@ The best classification rate for this competition is currently 0.8294. We would 
 - Commercially managed water points were found
 - Our model found that installation by a District Water Engineer is a strong indicator for functionality.
 
-#### Business-facing Recommendations
-- Acqure more data on water points to analyze current usage and longevity of water point pump.
+#### Recommendations
+- Acquire more data on water points to analyze current usage and longevity of water point pump.
 - Increase funding for regions with more non-functional waterpoints by subsidizing private or community built wells.
 - Include the community in the planning and building process of new water points to improve overall care.
 
