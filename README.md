@@ -5,59 +5,52 @@
 ![header](references/pexels-kelly-lacy-3030281.jpg)
      
 # Our Goal
-
-Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and the [Tanzanian Ministry of Water](https://www.maji.go.tz/) can be used to predict well functionality. The data provided by these resources was collected by Driven Data for a competition which can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). This project is important because [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to its growing population and if we can predict well functionality, we can provide insight that may be crucial for fixing their infrastructure.
+Our goal is to discover if data aggregated by [Taarifa](http://taarifa.org/) and the [Tanzanian Ministry of Water](https://www.maji.go.tz/) can be used to predict well functionality. Our ultimate goal is to provide a dashboard capable of mapping well functionality as well as predict failure dates for functioning wells. This project is important because [Tanzania has struggled](https://water.org/our-impact/where-we-work/tanzania/) to provide water to its growing population and if we can predict well functionality, we can provide insight that may be crucial for fixing their infrastructure.
 
 ## Objectives
 1. Investigate the relationship between water point functionality and these factors:
- - Users, installers, and managers
- - Geographic location
- - Year built
- - Technology used
+     * Users, installers, and managers
+     * Geographic location
+     * Year built
+     * Technology used
 2. Build a predictive model
-3. Report findings
+3. Report findings for future work
 
 ## Table of Contents
-1. Context
-2. Data Analysis
-3. Data Preperation
-4. Modelling
-5. Results
-6. Methods
-7. Contribution
+1. [Context](https://github.com/sydroth/tanzaniawellclassification#context)
+2. [Data Analysis](https://github.com/sydroth/tanzaniawellclassification#data-analysis)
+3. [Data Preperation](https://github.com/sydroth/tanzaniawellclassification#data-cleaning)
+4. [Modelling](https://github.com/sydroth/tanzaniawellclassification#modelling)
+5. [Results](https://github.com/sydroth/tanzaniawellclassification#final-model-results)
+6. [Methods](https://github.com/sydroth/tanzaniawellclassification#methods)
+7. [How to Contribute](https://github.com/sydroth/tanzaniawellclassification#want-to-contribute)
 
 ### Context
-Furthermore, we are attempting to find out exactly which features best determine this functioning status. Numerous studies have been done on what factors contribute to a wells longevity which have found that the management style, location, and technology are all strong indicators. We want to verify this in our data and also find more factors that are accessible given the format of the data.
-
+According to [WaterAid](https://www.wateraid.org/tz/), only 60% of Tanzanians have access to safe drinking water and only half of all rural residents have access to proper handwashing facilities. This problem is exacerbated by their growing population, which is expected to increase in size by about 30% by 2030. The government is trying to address this with plans to provide universal access to water by 2025, but the infrastructure already in place is failing, making it an uphill battle. If the government has a way to predict when and where waterpoints might fail, they will be better able to respond to failures efficiently, saving time and money.
 
 ### Data Analysis
-We were provided with a trianing dataset, training target dataset, and a test values dataset. After reading in the training dataset and target label, we merged these two dataframes together to have the complete training dataframe with the target variable. The target label in this dataset is 'Status_group' which contains the values 'functional', 'functional needs repair', or 'non-functional'.
+The data provided by these resources was collected by Driven Data for a competition which can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). The dataset provided has 59400 observations, with each row representing a single waterpoint. The target label in this dataset is 'Status_group' which contains the values 'functional', 'functional needs repair', or 'non-functional'. There are 39 features ranging from technologies used to the group that manages the well. A simple data dictionary can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/25/#features_list)
 
-#### Regional Factors
-<p style="text-align:center;">
-    <img src="reports/figures/images/image3.png"
-     style="text-align: center;"
-     alt="Markdown Monster icon"
-     style="float: center;"
-     width="800"/>
-</p>
-<p style="text-align:center;">
-    <img src="reports/figures/images/image1.png"
-     style="text-align: center;"
-     alt="Markdown Monster icon"
-     style="float: center;"
-     width="800"/>
-</p>
+#### Sample of Findings: Regional Factors
+There are regional disparities in well functionality, whether that's from inadequate funding or geographical limitations. Here we see the two regions with the highest percentage of functional wells compared to the two regions with the lowest.
+<img src="reports/figures/images/image3.png"
+style="text-align: center;"
+alt="Markdown Monster icon"
+style="float: center;"
+width="600"/>
+
+Below you can see a map of Tanzania where each region is darker if it has more non-functioning wells. Notice the brightest region just below the center; that's Iringa, the region with the highest rate of well functionality.
+
+<img src="reports/figures/images/image1.png"
+style="text-align: center;"
+alt="Markdown Monster icon"
+style="float: center;"
+width="600"/>
+
 
 
 ### Data Cleaning
-#### Removing | Imputting Missing Values
-- Using inferential statistics, imputted the missing values with the appropriate values for each specific variable. 
-
-#### Dataset Scaling and Encoding
-- Decided on whether to keep the variables as continuous numerical features in the model or utilyze them as categorical features by binning the values. 
-
-- Scaled the numerical features and encoded the categorical features.
+Before modelling, all of our data was run through the process_data notebook, which will generate a new csv file in the data folder. This csv is ready for the scaling and transformations used in the modelling notebook. Duplicate columns were removed, similar columns were combined so that categorical variables were combined if they were not identical in both columns. Our goal was to reduce the dimensionality of our data while preserving as much information as possible.
 
 ### Modelling
  The Tanzanian government is struggling to provide water to its growing population. Providing insights into the future status of their water infrastructure will enable them to prepare for future water demands. Our hope in making this model is to provide the government a way to predict the statuses of these points and allocate resource to areas in need based on these predicitons.
@@ -146,10 +139,9 @@ The best classification rate for this competition is currently 0.8294. We would 
  
 
 
-### Explore Findings 
-- The functionality of wells is regionally specific, with wells built in the Iringa region have much higher rates of functionality.
-- Commercially managed water points were found
-- Our model found that installation by a District Water Engineer is a strong indicator for functionality.
+### Next steps
+- Build dashboard
+- improve model performance on 'functional needs repair' class
 
 #### Recommendations
 - Acquire more data on water points to analyze current usage and longevity of water point pump.
